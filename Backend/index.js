@@ -14,10 +14,7 @@ app.use(express.json());
 // MongoDB Connection
 const mongoURI = "mongodb+srv://Raveesha:raveesha@cluster0.cnc9ie5.mongodb.net/webproject";
 mongoose
-    .connect(mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    .connect(mongoURI)
     .then(() => {
         console.log("Connected to MongoDB");
     })
