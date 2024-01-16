@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const mongoURI = "mongodb+srv://Raveesha:raveesha@cluster0.cnc9ie5.mongodb.net/webproject";
+const mongoURI = "mongodb+srv://Raveesha:raveesha@cluster0.cnc9ie5.mongodb.net/web-project2";
 mongoose
     .connect(mongoURI)
     .then(() => {
@@ -26,6 +26,9 @@ mongoose
 app.get("/", (req, res) => {
     res.send("Express App is Running");
 });
+
+// Image Storage Engine
+
 
 // Start the server
 app.listen(port, () => {
