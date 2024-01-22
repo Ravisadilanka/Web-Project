@@ -15,7 +15,7 @@ const Navbar = () => {
     <div className='navbar flex'>
       <div className="nav-logo">
         <img src={logo} alt="Main Logo" />
-        <p>ShoPPer.Lk</p>
+        <p>Fashion.Com</p>
       </div>
 
       <ul className='nav-menu'>

@@ -16,11 +16,14 @@ function App() {
 
    
     <Router>
+    
     <Navbar/>
+    
+    
     
       <Routes>
 
-      <Route path='/' element={<Shop/>} Shop/>
+      <Route path='/' element={<Shop/>} />
       <Route path='/mens' element={<ShopCategory category = "men"/>}/>
       <Route path='/womens' element={<ShopCategory category = "women"/>}/>
       <Route path='/kids' element={<ShopCategory category = "kids"/>}/>
@@ -32,9 +35,13 @@ function App() {
       <Route path='/login' element={<LoginSignup/>}/>
 
       </Routes>
+
+      
     
     
     </Router>
+
+    
      
         
    
