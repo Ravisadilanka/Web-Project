@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap");
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer .footer-logo p {
+  color: #383838;
+  font-size: 48px;
+  font-weight: 700;
+}
+.footer .footer-links {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  color: #252525;
+  font-size: 20px;
+}
+.footer .footer-links li {
+  cursor: pointer;
+}
+.footer .footer-social-icon {
+  display: flex;
+  gap: 25px;
+}
+.footer .footer-social-icon .footer-icons-container {
+  padding: 10px;
+  padding-bottom: 6px;
+  background: #fbfbfb;
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+}
+.footer .footer-copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  font-size: 20px;
+}
+.footer .footer-copyright hr {
+  width: 90%;
+  border: none;
+  border-radius: 15px;
+  height: 20px;
+  background: #c7c7c7;
+}/*# sourceMappingURL=Footer.css.map */

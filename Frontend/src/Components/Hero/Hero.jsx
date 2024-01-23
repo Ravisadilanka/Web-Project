@@ -3,6 +3,7 @@ import img1 from '../../Assets/hand_icon.png';
 import img2 from '../../Assets/arrow.png';
 import img3 from '../../Assets/hero_image.png';
 
+
 const Hero = () => {
   return (
     <div className='hero'>
@@ -31,6 +32,8 @@ const Hero = () => {
         <div className="hero-right">
             <img src={img3} alt="Hero_Image" />
         </div>
+
+        
 
       
     </div>
