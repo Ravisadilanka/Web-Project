@@ -13,8 +13,13 @@ app.use(cors());
 // Middleware to parse JSON
 app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect("mongodb+srv://Raveesha:raveesha@cluster0.cnc9ie5.mongodb.net/web-project2");
+
+
+// MongoDB connection string
+const uri = 'mongodb+srv://Raveesha:raveesha@cluster0.cnc9ie5.mongodb.net/web-project2';
+
+// MongoDB connection
+mongoose.connect(uri);
 
 // Routes
 app.get("/", (req, res) => {
@@ -24,72 +29,72 @@ app.get("/", (req, res) => {
 // Image Storage Engine
 const storage = multer.diskStorage({
     destination: './upload/images',
-    filename:(req, file, cb)=>{
+    filename: (req, file, cb) => {
         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
     }
 })
 
-const upload = multer({storage:storage})
+const upload = multer({ storage: storage })
 
 //Creating Upload Endpoint for images
 
-app.use('/images',express.static('upload/images'))
+app.use('/images', express.static('upload/images'))
 
-app.post("/upload",upload.single('product'),(req,res)=>{
+app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
-        success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`
+        success: 1,
+        image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
 
 // Schema for Creating Products
-const Product = mongoose.model("Product",{
-    id:{
+const Product = mongoose.model("Product", {
+    id: {
         type: Number,
         required: true,
     },
-    name:{
+    name: {
         type: String,
         required: true,
     },
-    image:{
+    image: {
         type: String,
         required: true,
     },
-    category:{
+    category: {
         type: String,
         required: true,
     },
-    new_price:{
+    new_price: {
         type: Number,
         required: true,
     },
-    old_price:{
+    old_price: {
         type: Number,
         required: true,
     },
-    date:{
+    date: {
         type: Date,
         default: Date.now,
     },
-    available:{
+    available: {
         type: Boolean,
         default: true,
     },
 })
 
-app.post('/addproduct', async (req,res) => {
+app.post('/addproduct', async (req, res) => {
     let products = await Product.find({});
     let id;
-    if(products.length>0){
+    if (products.length > 0) {
         let last_product_array = products.slice(-1)
         let last_product = last_product_array[0]
-        id = last_product.id+1
-    }else{
+        id = last_product.id + 1
+    } else {
         id = 1
     }
     const product = new Product({
-        id:id,
+        id: id,
         name: req.body.name,
         image: req.body.image,
         category: req.body.category,
@@ -101,22 +106,22 @@ app.post('/addproduct', async (req,res) => {
     console.log("Saved");
     res.json({
         success: true,
-        name:req.body.name,
+        name: req.body.name,
     })
 })
 
 // Creating API for deleting Products
-app.post('/removeproduct', async(req,res) =>{
-    await Product.findOneAndDelete({id:req.body.id})
+app.post('/removeproduct', async (req, res) => {
+    await Product.findOneAndDelete({ id: req.body.id })
     console.log("Removed")
     res.json({
-        success:true,
-        name:req.body.name,
+        success: true,
+        name: req.body.name,
     })
 })
 
 //Creating API for getting all products
-app.get('/allproducts',async (req,res)=>{
+app.get('/allproducts', async (req, res) => {
     let products = await Product.find({})
     console.log("All Products Fetched")
     res.send(products)
