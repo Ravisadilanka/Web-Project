@@ -10,8 +10,8 @@ const AddProduct = () => {
     name:'',
     image:'',
     category:'women',
-    new_price:'',
-    old_price:''
+    new_price: 0,
+    old_price: 0
   })
 
   const imageHandler = (e) => {
@@ -32,16 +32,26 @@ const AddProduct = () => {
 
     await fetch('http://localhost:4000/upload',{
       method: 'POST',
-      headears:{
+      headers:{
         Accept:'application/json',
       },
       body:formData,
-    }).then((resp) => resp.json).then((data)=>{responseData=data});
+    }).then((resp) => resp.json()).then((data)=>{responseData=data});
 
     if(responseData.success)
     {
       product.image = responseData.image_url;
-      console.log(product)
+      console.log(product);
+      await fetch('http://localhost:4000/addproduct',{
+        method: 'POST',
+        headers:{
+          Accept:'application/json',
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(product),
+      }).then((resp)=>resp.json()).then((data)=>{
+        data.success?alert("Product Added"):alert("Failed")
+      })
     }
   }
 
@@ -54,19 +64,19 @@ const AddProduct = () => {
       <div className="addproduct-price">
         <div className="addproduct-itemfield">
           <p>Price</p>
-          <input value={productDetails.old_price} onChange={changeHandler} type="text" name="old_price" placeholder="Type here"/>
+          <input value={productDetails.old_price} onChange={changeHandler} type="number" name="old_price" placeholder="Type here"/>
         </div>
         <div className="addproduct-itemfield">
           <p>Offer Price</p>
-          <input value={productDetails.new_price} onChange={changeHandler} type="text" name="new_price" placeholder="Type here"/>
+          <input value={productDetails.new_price} onChange={changeHandler} type="number" name="new_price" placeholder="Type here"/>
         </div>
       </div>
       <div className="addproduct-itemfield">
         <p>Product Category</p>
         <select value={productDetails.category} onChange={changeHandler} name="category" className="add-product-selector">
           <option value="women">Women</option>
-          <option value="women">Men</option>
-          <option value="women">Kid</option>
+          <option value="men">Men</option>
+          <option value="kid">Kid</option>
         </select>
       </div>
       <div className="addproduct-itemfield">
