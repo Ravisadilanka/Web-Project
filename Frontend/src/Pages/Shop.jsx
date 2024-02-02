@@ -1,4 +1,5 @@
 import Hero from "../Components/Hero/Hero"
+import NewCollection from "../Components/NewCollection/NewCollection"
 import Popular from "../Components/Popular/Popular"
 
 
@@ -8,7 +9,7 @@ const Shop = () => {
     <div>
       <Hero/>
       <Popular/>
-      
+      <NewCollection />
       
       
     </div>

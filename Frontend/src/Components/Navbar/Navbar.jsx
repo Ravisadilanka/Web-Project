@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { React, useState } from 'react'
 import './Navbar.css';
 
@@ -31,8 +32,10 @@ const Navbar = () => {
       </ul>
 
       <div className="nav-login-cart">
-       <Link to='/login'><button>Login</button></Link>
-       <Link to='/cart'><img src={cart_icon} alt="Cart Logo" /></Link>
+        {localStorage.getItem('auth-token')
+        ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Logout</button>
+        :<Link to='/login'><button>Login</button></Link>}
+        <Link to='/cart'><img src={cart_icon} alt="Cart Logo" /></Link>
         <div className="nav-cart-count">0</div>
       </div>
 
