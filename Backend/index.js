@@ -161,7 +161,7 @@ app.post('/signup', async (req, res) => {
         cart[i] = 0;
     }
     const user = new Users({
-        name: req.body.username,
+        name: req.body.username,  
         email: req.body.email,
         password: req.body.password,
         cartData: cart,
