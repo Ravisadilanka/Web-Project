@@ -161,7 +161,7 @@ app.post('/signup', async (req, res) => {
         cart[i] = 0;
     }
     const user = new Users({
-        name: req.body.username,
+        name: req.body.username,  
         email: req.body.email,
         password: req.body.password,
         cartData: cart,
@@ -220,7 +220,7 @@ app.get('/popularinwomen', async (req, res) => {
 
 //Creating middelware to fetch user
 const fetchUser = async (req, res, next) => {
-    const token = req.header(auth - token);
+    const token = req.header('auth-token');
     if (!token) {
         res.status(401).send({ errors: "Please authenticate using valid token" })
     }
