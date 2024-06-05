@@ -10,8 +10,9 @@ const CartItems = () => {
 
   return (
     <div className="cartitems">
+      <p>You can checkout your orders here...</p>
       <div className="cartitems-format-main">
-        <p>Products</p>
+        <p>Items</p>
         <p>Title</p>
         <p>Price</p>
         <p>Quantity</p>
@@ -40,7 +41,7 @@ const CartItems = () => {
       
       <div className="cartitems-down">
         <div className="cartitems-total">
-          <h1>Cart Totals</h1>
+          <h1>Your Cart Total</h1>
           <div>
             <div className="cartitems-total-item">
               <p>Subtotal</p>
@@ -60,10 +61,10 @@ const CartItems = () => {
           <button>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cartitems-promocode">
-          <p>If you have a promo code, Enter it here</p>
+          <p>If you have a Stylo promo code, Enter here</p>
           <div className="cartitems-promobox">
-            <input type="text" placeholder="promo code" />
-            <button>Submit</button>
+            <input type="text" placeholder="Stylo promo code" />
+            <button>Claim Offer</button>
           </div>
         </div>
       </div>
