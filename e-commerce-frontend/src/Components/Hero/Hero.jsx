@@ -7,17 +7,17 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero-left">
-        <h2>STYLING YOUR FASHION</h2>
+        <h2>Make Fashion - Choose Stylo</h2>
         <div>
           <div className="hero-hand-icon">
-            <p>Find</p>
+            <p>Just</p>
             
           </div>
-          <p>Your</p>
-          <p>Colorful Style</p>
+          <p>Find Your </p>
+          <p>Colorful Style..!</p>
         </div>
         <div className="hero-latest-btn">
-          <div>Trending Collection</div>
+          <div>Shopping with Stylo</div>
           <img src={arrow_icon} alt="" />
         </div>
       </div>
